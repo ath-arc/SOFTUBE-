@@ -1,0 +1,44 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Represents a registered user in SOFTDRIVE.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "Unique identifier for the user" },
+        "email": { "type": "string", "description": "The user's registered email address" },
+        "createdAt": { "type": "string", "description": "ISO timestamp of user creation" }
+      },
+      "required": ["uid", "email"]
+    },
+    "DriveNode": {
+      "title": "DriveNode",
+      "description": "A file or folder item inside a user's SoftDrive storage system.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique item identifier" },
+        "ownerId": { "type": "string", "description": "The user owner UID" },
+        "name": { "type": "string", "description": "Displayed node label" },
+        "type": { "type": "string", "description": "Whether folder or file" },
+        "parentId": { "type": "string", "description": "Parent directory ID or null for root" },
+        "isStarred": { "type": "boolean", "description": "Whether marked as starred" },
+        "isTrashed": { "type": "boolean", "description": "Whether placed in the trash" },
+        "size": { "type": "string", "description": "Formatted file size" },
+        "mimeType": { "type": "string", "description": "The MIME details" },
+        "createdAt": { "type": "string", "description": "Creation timestamp" },
+        "content": { "type": "string", "description": "Embedded text content of standard document nodes" }
+      },
+      "required": ["id", "ownerId", "name", "type", "isStarred", "isTrashed", "size", "mimeType", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User profiles collections"
+    },
+    "/users/{userId}/nodes/{nodeId}": {
+      "schema": "DriveNode",
+      "description": "Hierarchical directory structure representation for each user"
+    }
+  }
+}

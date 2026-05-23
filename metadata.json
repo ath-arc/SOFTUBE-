@@ -1,0 +1,6 @@
+{
+  "name": "SOFTDRIVE",
+  "description": "An advanced Google Drive alternative featuring a personal file explorer, PDF generation engine, dynamic Video Maker with live-scenes, and an interactive ad-blocking security shield.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
